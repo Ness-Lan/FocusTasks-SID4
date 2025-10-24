@@ -1,1 +1,23 @@
+Title: Closure-based client-side store for FocusTasks 0211
+Date: 2025-10-24
+Status: accepted
+
+Context:
+A small single-page task manager is required with persistent local storage,
+no global mutable task array, XSS-safe rendering, and accessible controls.
+
+Decision:
+- Implemented createStore(storageKey) which returns { add, toggle, remove, list }.
+  The task array is stored in the closure scope of createStore and persisted to
+  localStorage under key `focustasks_0211`.
+- Use only functional array transforms (map/filter/concat) for state changes.
+- Render exclusively with DOM APIs and textContent (escapeHtml helper included).
+- Single delegated listener handles list interactions; form submit handles add.
+- Mobile-first CSS with a single media query switching layout at 481px.
+
+Consequences:
+- No top-level tasks variable reduces accidental mutation and improves testability.
+- Client-side escaping + textContent prevents insertion of user HTML in this app.
+  Note: for server-rendered or multi-user scenarios, server-side sanitization and
+  Content Security Policy are required for robust protection against stored XSS.
 
