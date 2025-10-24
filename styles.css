@@ -86,7 +86,7 @@ button:focus, input:focus {
   font-size: 0.9em;
 }
 
-/* Responsive: 2 columns at ≥ 481px */
+
 @media (min-width: 481px) {
   main {
     flex-direction: row;
