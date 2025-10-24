@@ -1,1 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>FocusTasks 0211</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1 id="app-title">FocusTasks 0211</h1>
+    <div id="analytics" class="analytics" aria-live="polite">Active: 0 · Done: 0 · Done %: 0.0%</div>
+  </header>
+
+  <main id="lists-root">
+    <section aria-labelledby="active-heading" class="panel">
+      <h2 id="active-heading">Active</h2>
+
+      <form id="add-form" class="add-form" novalidate>
+        <label for="task-input">Add task</label>
+        <div class="input-row">
+          <input id="task-input" name="title" type="text" autocomplete="off" />
+          <button id="add-button" type="submit">Add</button>
+        </div>
+        <div id="error" class="error" role="alert" aria-live="assertive"></div>
+      </form>
+
+      <div id="lists-wrapper" class="lists-wrapper">
+        <ul id="active-list" class="task-list" aria-live="polite" aria-label="Active tasks"></ul>
+        <ul id="done-list" class="task-list" aria-live="polite" aria-label="Done tasks"></ul>
+      </div>
+    </section>
+
+    <section aria-labelledby="done-heading" class="panel">
+      <h2 id="done-heading">Done</h2>
+      <p class="help">Completed tasks move here. Use Delete to remove a task.</p>
+    </section>
+  </main>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
 
